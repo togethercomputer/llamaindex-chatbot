@@ -1,30 +1,35 @@
 # Open source AI RAG Chatbot
 
-This is a [LlamaIndex](https://www.llamaindex.ai/) and [Together.ai](https://www.together.ai/) project using [Next.js](https://nextjs.org/) bootstrapped with [`create-llama`](https://github.com/run-llama/LlamaIndexTS/tree/main/packages/create-llama).
+This is a [LlamaIndex](https://www.llamaindex.ai/) and [Together.ai](https://www.together.ai/) RAG chatbot using [Next.js](https://nextjs.org/) bootstrapped with [`create-llama`](https://github.com/run-llama/LlamaIndexTS/tree/main/packages/create-llama).
 
-It's modified to be powered by Together AI Inference through Mixtral and Together Embeddings.
+It's powered by Llama Index, Mixtral (through Together AI Inference) and Together Embeddings. It'll embed the PDF file in `data`, generate embeddings stored locally, then give you a RAG chatbot to ask questions to.
 
 ## Getting Started
 
 Copy your `.example.env` file into a `.env` and replace the TOGETHER_API_KEY with your API key from [together.ai](https://www.together.ai).
 
-1. Install the dependencies:
+1. Install the dependencies.
 
 ```
 npm install
 ```
 
-2. Generate the embeddings
+2. Generate the embeddings and store them locally in the `cache` folder. You can also provide a PDF in the `data` folder instead of the default one.
 
 ```
 npm run generate
 ```
 
-3. Run the app and chat with it
+3. Run the app and send messages to your chatbot. It will use context from the embeddings to answer questions.
 
 ```
 npm run dev
 ```
+
+## Common Issues
+
+- Ensure your environment file is called `.env`
+- Specify a dummy `OPENAI_API_KEY` value in this `.env` to make sure it works (temporary hack, Llama index is patching this)
 
 ## Learn More
 
